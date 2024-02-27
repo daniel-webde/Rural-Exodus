@@ -1,0 +1,23 @@
+{
+  "name": "rural-exodus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "proxy": "http://localhost:5000/",
+  "repository": {
+    "type": "git",
+    "url": "rural-exodus"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3"
+  }
+}
