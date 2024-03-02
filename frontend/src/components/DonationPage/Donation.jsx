@@ -1,29 +1,18 @@
 import { useState } from "react"
 
-const Donation = ( { handleDonationChange, handlePaymentPlanChange } ) => {
-    const[paymentPlan, setPaymentPlan] = useState('once');
-    const [donationAmount, setDonationAmount] = useState(0);
-    const [customAmount, setCustomAmount] = useState('');
-    // const [email, setEmail] = useState(""); // State to hold the email
+const Donation = ( { paymentPlan, 
+                      setPaymentPlan, 
+                      donationAmount, 
+                      setDonationAmount, 
 
-    handlePaymentPlanChange(paymentPlan);
+                      customAmount,
+                      handleAmountChange,
+                      handleCustomAmountChange,
 
-    const handleAmountChange = (amount) => {
-      setDonationAmount(amount);
-      setCustomAmount('');
-      handleDonationChange(amount); // Call the function to update the donation amount
-    };
+                      handleDonationChange, 
+                      handlePaymentPlanChange 
+                    } ) => {
 
-    const handleCustomAmountChange = (event) => {
-      const amount = parseInt(event.target.value);
-      setDonationAmount(amount);
-      setCustomAmount(event.target.value);
-      handleDonationChange(amount); // Call the function to update the donation amount
-    };
-
-    // const handleAmountChange = (amount) => {
-    //   handleDonationChange(amount); // Call the function to update the donation amount
-    // };
 
   return (
     <div className="grid grid-cols-4 gap-2 px-4 lg:px-6 py-4 border-2 rounded-lg hover:shadow-md bg-white">
@@ -38,7 +27,7 @@ const Donation = ( { handleDonationChange, handlePaymentPlanChange } ) => {
                         type="radio" 
                         value="once" 
                         checked={paymentPlan === 'once'}
-                        onChange={() => setPaymentPlan('once')}
+                        onChange={() => handlePaymentPlanChange('once')}
                         className="appearance-none" 
                     />
                     <span>Once</span>
@@ -53,7 +42,7 @@ const Donation = ( { handleDonationChange, handlePaymentPlanChange } ) => {
                         type="radio" 
                         value="monthly" 
                         checked={paymentPlan === 'monthly'}
-                        onChange={() => setPaymentPlan('monthly')}
+                        onChange={() => handlePaymentPlanChange('monthly')}
                         className="appearance-none" 
                     />
                     <span>Monthly</span>

@@ -49,7 +49,7 @@ const Media = () => {
           <iframe 
               src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7033328289477705728" 
               
-              frameborder="0" allowfullscreen="" title="Embedded post"
+              frameBorder="0" allowFullScreen="" title="Embedded post"
               className="rounded hover:shadow-lg w-full h-96 hover:shadow-gray-500"
           ></iframe>
           

@@ -7,14 +7,27 @@ import DonationPageFooter from "../components/DonationPage/DonationPageFooter";
 const DonationPage = () => {
     const [paymentPlan, setPaymentPlan] = useState('once');
     const [donationAmount, setDonationAmount] = useState(0);
+    const [customAmount, setCustomAmount] = useState('');
   
     const handleDonationChange = (amount) => {
       setDonationAmount(amount);
     };
-    
 
     const handlePaymentPlanChange = (plan) => {
         setPaymentPlan(plan);
+      };
+
+      const handleAmountChange = (amount) => {
+        // setDonationAmount(amount);
+        setCustomAmount('');
+        handleDonationChange(amount); // Call the function to update the donation amount
+      };
+
+      const handleCustomAmountChange = (event) => {
+        const amount = parseInt(event.target.value);
+        // setDonationAmount(amount);
+        setCustomAmount(event.target.value);
+        handleDonationChange(amount); // Call the function to update the donation amount
       };
 
   return (
@@ -24,13 +37,25 @@ const DonationPage = () => {
         <div className="grid lg:grid-cols-2 px-2 py-2 lg:py-4">
             <div className="lg:ml-14 lg:px-10">
                 {/* Donation Type and Amount*/}
-                <Donation handleDonationChange={handleDonationChange} handlePaymentPlanChange={handlePaymentPlanChange} />
+                <Donation 
+                    paymentPlan={paymentPlan}
+                    donationAmount={donationAmount}
+                    customAmount={customAmount}
+                    handleAmountChange={handleAmountChange}
+                    handleCustomAmountChange={handleCustomAmountChange}
+                    handleDonationChange={handleDonationChange}
+                    handlePaymentPlanChange={handlePaymentPlanChange}
+
+                />
 
                 {/* Payment Options */}
                 <Payments />                
 
                 {/* Personal Details */}
-                <PersonalDetails  donationAmount={donationAmount} paymentPlan={paymentPlan} />
+                <PersonalDetails  
+                                donationAmount={donationAmount} 
+                                paymentPlan={paymentPlan} 
+                />
             </div>
 
 
